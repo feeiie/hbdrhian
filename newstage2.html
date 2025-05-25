@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>NewStage2 - life with toghter</title>
+  <link rel="stylesheet" href="game-style.css" />
+</head>
+<body>
+  <audio id="quizOpenSound" src="パッ.mp3" preload="auto"></audio>
+<audio id="quizCorrectSound" src="クイズ正解2.mp3" preload="auto"></audio>
+<audio id="quizWrongSound" src="クイズ不正解1.mp3" preload="auto"></audio>
+<audio id="bgm" src="コーヒーゼリー.mp3" autoplay loop preload="auto"></audio>
+<audio id="clickSound" src="パッ.mp3" preload="auto"></audio>
+  <audio id="goalSound" src="ぷよん.mp3" preload="auto"></audio>
+
+  
+<!-- ステージ名＆コイン表示 -->
+  <div id="stageName">NewStage2 - life with toghter</div>
+  <div id="haruCounterArea">
+    <span id="haruCounter">haru: 0</span>
+    <button id="resetHaruBtn">🔄 Reset</button>
+  </div>
+
+  <!-- 戻る＆マップボタン -->
+  <div id="navButtons">
+    <button onclick="goBackStage()">⬅ Back</button>
+    <button onclick="location.href='map.html'">🗺 Map</button>
+    <button onclick="location.href='gallery.html'">🗺 Gallery</button>
+  </div>
+  <button class="haru-btn bottom-right" onclick="location.href='haru-coin.html'">💰 how to use haru-coin</button>
+
+  <div id="gameArea" style="background-image: url('https://archipro.com.au/images/cdn-images/width%3D3840%2Cquality%3D80/images/s1/article/misc/Gentlemans-Bungalow-Glenelg-East-Yvonne-Svensson-Architect.jpeg/eyJlZGl0cyI6W3sidHlwZSI6InpwY2YiLCJvcHRpb25zIjp7ImJveFdpZHRoIjoyODgwLCJib3hIZWlnaHQiOjE4NTYsIndhdGVybWFyayI6eyJ0ZXh0IjoiWXZvbm5lIFN2ZW5zc29uIEFyY2hpdGVjdCIsImZvbnRTaXplIjoyNH0sImNvdmVyIjp0cnVlLCJ6b29tV2lkdGgiOjI4ODAsInNjcm9sbFBvc1giOjUwLCJzY3JvbGxQb3NZIjo1MCwiYmFja2dyb3VuZCI6InJnYig3NCwxNDAsMjI3KSIsImZpbHRlciI6MH19LHsidHlwZSI6ImZsYXR0ZW4iLCJvcHRpb25zIjp7ImJhY2tncm91bmQiOiIjZmZmZmZmIn19XSwicXVhbGl0eSI6ODcsInRvRm9ybWF0IjoianBnIn0='); background-size: cover; background-position: center;">
+    <div id="player"></div>
+
+
+
+    <!-- ギャラリーアイテム -->
+<div class="gallery-item"
+data-id="gallery10"
+data-img="livewith.jpg"
+data-question="What is the most excited thing when we are live toghter?"
+data-answers="going go  somewhere everyday,play everyday,watch movie together,everything"
+data-correct="everything"
+data-memory="I promise I live with you!"
+style="left: 500px; top: 350px;"></div>
+
+     <!-- コイン -->
+<div class="coin" 
+data-id="g6c1" 
+data-img="cook.jpg"
+data-memory="i want to make food for you and get fat" 
+data-question="What food i want to make with you?" 
+data-answers="pasta,steak,everything"
+data-correct="everything" 
+style="left: 300px; top: 200px;"></div>
+
+<div class="coin" 
+data-id="g6c2"
+data-img="dog.jpg" 
+data-memory="get dog insted of make me dog" 
+data-question="which dog i want to get?" 
+data-answers="Maltipoo,shibainu,doberman" 
+data-correct="doberman" 
+style="left: 400px; top: 450px;"></div>
+
+<div class="coin" 
+data-id="g6c3" 
+data-img="sleep.jpg"
+data-memory="we can sleep toghter without phone!" 
+data-question="What time do i most like?" 
+data-answers="you went to sleep before i did,make me happy,talking to you" 
+data-correct="you went to sleep before i did" 
+style="left: 900px; top: 270px;"></div>
+
+    <!--ここ新しい場所 吹き出し -->
+<div id="coinMessage" style="display: none;">
+  <img id="coinImage" src="" style="width: 60px; height: auto; margin-right: 10px;">
+  <span id="coinMessageText">🪙</span>
+  <button id="closeCoinMsg">×</button>
+</div>
+<div id="memoryPhotoBox" class="photo-popup" style="display: none;">
+  <button id="closeMemoryPhoto">×</button>
+  <img id="memoryPhoto" src="" alt="Memory Photo">
+</div>
+
+    <!-- クイズ表示エリア -->
+<div id="quizPopup" style="
+display: none;
+position: fixed;
+top: 30%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: white;
+border: 2px solid black;
+padding: 20px;
+z-index: 9999;
+text-align: center;
+"></div>
+
+    <!-- ゴール -->
+    <div id="goal" style="display: none;">🏁</div>
+  </div>
+
+  <!-- スタート説明画面 -->
+  <div id="introBox">
+    <div class="intro-content">
+      <h2>🛫 newstage2 - life with me </h2>
+      <p>Collect all haru coins and reach the goal!</p>
+      <button id="startBtn">OK</button>
+    </div>
+  </div>
+
+  <!-- クリア画面 -->
+  <div id="clearBox" style="display: none;">
+    <div class="clear-content">
+      <h2>🎉 Stage Clear!</h2>
+      <p id="memoryText">Memory</p>
+      <button id="nextStageBtn">next ➡️</button>
+    </div>
+  </div>
+
+  <script src="game-script.js"></script>
+</body>
+</html>

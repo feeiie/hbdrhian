@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haruria.com</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.0/dist/ethers.umd.min.js"></script>
+ <script src="quiz-reward.js"></script>  <!-- 🔹 `app.js` の前に読み込む -->
+ <script src="app.js"></script>
+
+
+</head>
+
+
+</body>
+ <!-- パスワード画面 -->
+ <div id="passwordScreen">
+  <h2>パスワードを入力してください</h2>
+  <input type="password" id="passwordInput" placeholder="パスワード">
+  <button id="submitPassword">送信</button>
+  <p id="passwordError">パスワードが間違っています</p>
+ </div>
+
+
+
+  <!-- メインコンテンツ -->
+  <div id="mainContent">
+    <header>
+      <h1>Haruria.com 2/4</h1>
+    </header>
+    <img src="https://minecraft.wiki/images/TNT_JE3_BE2.png?62989" alt="tnt" class="left">
+    <img src="https://frame-illust.com/fi/wp-content/uploads/2017/03/9512.png" alt="牛" class="right">
+     <!-- 最後に会った日 -->
+     <div id="lastMet" style="text-align: center; margin-top: 20px;">
+      <p class="last-met-date">📅 最後に会った日: <strong>2025年1月14日</strong></p>
+      <p id="daysSinceLastMet" class="last-met-count">💔 会えていない日数: 計算中…</p>
+  
+      <div id="nextMeetingCountdownSection">
+          <h2 class="countdown-title">⏳ 次に会うまでのカウントダウン ⏳</h2>
+          <p class="next-meeting-text">次の再会 (12月12日) まで: <span id="nextMeetingCountdown">計算中…</span></p>
+      </div>
+  </div>
+  <!-- index2.html へ移動するボタン -->
+<div style="text-align: center; margin-top: 20px;">
+  <button onclick="location.href='index2.html'" class="quiz-btn">🚀 思い出の旅に出発！</button>
+</div>
+    
+    <section id="birthdayCountdownSection">
+      <h2> 🎂誕生日カウントダウン 🎂</h2>
+      <p>はるの誕生日まで: <span id="haruCountdown"></span> 日</p>
+      <p>りあの誕生日まで: <span id="riaCountdown"></span> 日</p>
+    </section>
+    <div id="countdownSection">
+      <h2>🎉 記念日カウントダウン 🎉</h2>
+      <p>記念日 (12月7日) まで: <span id="anniversaryCountdown"></span></p>
+    </div>
+    <!-- 付き合った日と経過日数 -->
+ <div id="relationshipSection">
+  <h2>💖 付き合い始めた日 💖</h2>
+  <p>開始日: <strong>2021年12月7日</strong></p>
+  <p>付き合ってから: <span id="relationshipDays"></span> 日</p>
+ </div>
+
+ <div id="memoriesSection">
+  <h2>思い出たち！</h2>
+  <div class="memory-gallery">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3sg9gxeN8S_r1wO4SBlAZXeKWe3XWicLHx5pOqBEKRa8Zr0HtL1_GX_uQB9fCnNHoVmw&usqp=CAU" alt="思い出1">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5XUu39jw6oN_R-oWeffaTyg5LhDkZZqENQQ&s" alt="思い出2">
+    <img src="https://www.cerezo.jp/common/og.jpg" alt="思い出3">
+    <img src="https://cdn.airpaz.com/rel-0275/airlines/201x201/TR.png"alt="思い出10">
+    <img src="https://blogimg.goo.ne.jp/user_image/09/4d/c24bb528d0aa523eb0d5073de9b2236f.png" alt="思い出5">
+    <img src="https://raillab.jp/img/user/record_photo/8280_322946/340.jpg?20240922221000" alt="思い出4">
+    <img src="https://opinion-images.wsj.net/im-71761568?width=1280&size=1" alt="思い出7">
+    <img src="https://raillab.jp/img/user/record_photo/10390_335200/680.jpg" alt="思い出6">
+    <img src="https://ekimeihyo.net/e/osakametro/img/yotsubashi-line_nishiumeda3.jpg"alt="思い出9">
+    <img src="https://www.crank-in.net/img/db/1195017_1200.jpg"alt="思い出9">
+    <img src="https://hy-road.net/s3/skiyaki/uploads/ckeditor/pictures/645940/content__366%E6%97%A5_%E3%83%86%E3%82%A3%E3%82%B5%E3%82%99%E3%83%BC%E3%83%92%E3%82%99%E3%82%B7%E3%82%99%E3%83%A5%E3%82%A2%E3%83%ABFIX.jpg"alt="思い出8">
+    <img src="https://static.gltjp.com/glt/data/directory/12000/11804/20210805_190758_03653280_w1920.webp"alt="思い出9">
+    <img src="https://news.nissyoku.co.jp/wp-content/uploads/2024/10/240919-31-02.jpg"alt="思い出9">
+    <img src="https://play-lh.googleusercontent.com/a55kU3hJmxMInckIcMJI311Da8fztQ8T4lTDC62VZxU5E_PUggNNqa2ejaky5UOq-xo=w240-h480-rw"alt="思い出9">
+    <img src="https://chie-pctr.c.yimg.jp/dk/iwiz-chie/que-11253034916?w=999&h=999&up=0">
+    <img src="https://images.keizai.biz/namba_keizai/headline/1414381497_photo.jpg">
+  </div>
+ </div>
+            
+
+<!-- クイズへ移動するボタン -->
+<div id="quizButtonBox" style="text-align: center; margin-top: 40px;">
+  <button onclick="location.href='quiz.html'" class="quiz-btn">🧠 今日のクイズに挑戦！</button>
+</div>
+
+
+
+  <!-- Web3.js の読み込み -->
+ </script>
+</body>
+
+
+</html>

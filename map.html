@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+      <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&family=M+PLUS+Rounded+1c&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+  <title> Memory Travel Map</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+      padding-top: 60px;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .map-grid {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .stage-box {
+      width: 220px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      background: #f0f0f0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      cursor: default;
+    }
+    .stage-box.unlocked {
+      background: #42a5f5;
+      color: white;
+      cursor: pointer;
+    }
+    .stage-box.locked {
+      background: #e0e0e0;
+      color: #888;
+      font-style: italic;
+    }
+    .stage-box.unlocked:hover {
+      background: #1e88e5;
+    }
+
+    .special-stage-wrapper {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+    }
+
+    .special-stage {
+      width: 240px;
+      text-align: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      font-weight: bold;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(255, 154, 158, 0.6);
+      animation: glow 1.5s ease-in-out infinite alternate;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .special-stage:hover {
+      transform: scale(1.05);
+    }
+
+    .special-stage.locked {
+      opacity: 0.5;
+      cursor: default;
+      animation: none;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 10px rgba(255, 154, 158, 0.7); }
+      to { box-shadow: 0 0 20px rgba(255, 154, 158, 1); }
+    }
+  </style>
+</head>
+<body>
+  <h1>🗺 Memory Travel Map</h1>
+  <audio id="clickSound" src="パッ.mp3" preload="auto"></audio>
+
+
+  <div class="map-grid">
+    <div id="stage1" class="stage-box unlocked" onclick="location.href='game.html'">Stage 1 - Perth</div>
+    <div id="stage2" class="stage-box locked">？？？</div>
+    <div id="stage3" class="stage-box locked">？？？</div>
+    <div id="stage4" class="stage-box locked">？？？</div>
+  </div>
+
+  <div class="special-stage-wrapper">
+    <div id="specialStage1" class="special-stage locked">🌟 Special Stage1</div>
+    <div id="specialStage2" class="special-stage locked">🌟 Special Stage2</div>
+  </div>
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+  const clickSound = document.getElementById("clickSound");
+
+  const playClick = () => {
+    if (clickSound) {
+      clickSound.currentTime = 0;
+      clickSound.play().catch(() => {});
+    }
+  };
+
+  // ✅ すべてのボタンとステージボックスに音をつける
+  document.querySelectorAll("button, .stage-box.unlocked, .special-stage").forEach(el => {
+    el.addEventListener("click", playClick);
+  });
+
+  const bgm = document.getElementById("bgm");
+  if (bgm) {
+    bgm.volume = 0.2;
+  }
+});
+
+
+    // 通常ステージの解除判定
+    if (localStorage.getItem("game.html_cleared") === "true") {
+      const stage2 = document.getElementById("stage2");
+      stage2.classList.remove("locked");
+      stage2.classList.add("unlocked");
+      stage2.textContent = "Stage 2 - Singapore";
+      stage2.onclick = () => location.href = 'game2.html';
+    }
+
+    if (localStorage.getItem("game2.html_cleared") === "true") {
+      const stage3 = document.getElementById("stage3");
+      stage3.classList.remove("locked");
+      stage3.classList.add("unlocked");
+      stage3.textContent = "Stage 3 - KIX";
+      stage3.onclick = () => location.href = 'game3.html';
+    }
+
+    if (localStorage.getItem("game3.html_cleared") === "true") {
+      const stage4 = document.getElementById("stage4");
+      stage4.classList.remove("locked");
+      stage4.classList.add("unlocked");
+      stage4.textContent = "Stage 4 - Osaka";
+      stage4.onclick = () => location.href = 'game4.html';
+    }
+
+    // 特別ステージの購入反映
+    document.addEventListener("DOMContentLoaded", function () {
+      const special1 = document.getElementById("specialStage1");
+      const special2 = document.getElementById("specialStage2");
+
+      if (localStorage.getItem("specialStage1Purchased") === "true") {
+        special1.classList.remove("locked");
+        special1.onclick = () => location.href = "newstage1.html";
+      } else {
+        special1.onclick = () => alert("？？？ You haven't bought this stage yet");
+      }
+
+      if (localStorage.getItem("specialStage2Purchased") === "true") {
+        special2.classList.remove("locked");
+        special2.onclick = () => location.href = "newstage2.html";
+      } else {
+        special2.onclick = () => alert("？？？ You haven't bought this stage yet");
+      }
+    });
+  </script>
+</body>
+</html>

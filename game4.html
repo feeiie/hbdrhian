@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stage4 - Osaka</title>
+  <link rel="stylesheet" href="game-style.css" />
+</head>
+<body>
+  <audio id="quizOpenSound" src="パッ.mp3" preload="auto"></audio>
+<audio id="quizCorrectSound" src="クイズ正解2.mp3" preload="auto"></audio>
+<audio id="quizWrongSound" src="クイズ不正解1.mp3" preload="auto"></audio>
+<audio id="bgm" src="コーヒーゼリー.mp3" autoplay loop preload="auto"></audio>
+  <audio id="goalSound" src="ぷよん.mp3" preload="auto"></audio>
+
+  <!-- ステージ名＆コイン表示 -->
+  <div id="stageName">Stage 4 - Osaka</div>
+  <div id="haruCounterArea">
+    <span id="haruCounter">haru: 0</span>
+    <button id="resetHaruBtn">🔄 Reset</button>
+  </div>
+  
+  <!-- 戻る＆マップボタン -->
+  <div id="navButtons">
+    <button onclick="goBackStage()">⬅ Back</button>
+    <button onclick="location.href='map.html'">🗺 Map</button>
+    <button onclick="location.href='gallery.html'">Gallery</button>
+  </div>
+
+  <button class="haru-btn bottom-right" onclick="location.href='haru-coin.html'">💰 how to use haru-coin</button>
+
+  <!-- ゲームエリア -->
+  <div id="gameArea" style="background-image: url('https://www.agoda.com/wp-content/uploads/2018/12/City-guides_things-to-do-in-Osaka_Glico-Man_Ebisu-Bridge.jpg'); background-size: cover; background-position: center;">
+    <div id="player"></div>
+
+
+    <!-- ギャラリーアイテム -->
+<div class="gallery-item"
+data-id="gallery7"
+data-img="nerveswhenyousendme.jpg"
+data-question="When you send me this pciture what do i think?"
+data-answers="worry,happy,will start next meeting"
+data-correct="will start next meeting"
+data-memory="ofc i did worry if you can come here"
+style="left: 500px; top: 350px;"></div>
+
+
+<div class="gallery-item"
+data-id="gallery8"
+data-img="watchmovie.jpg"
+data-question="what do i think starting watching movie"
+data-answers="boared,fun,we are close"
+data-correct="we are close"
+data-memory="i want to see rest of the movie with you  asap"
+style="left: 850px; top: 350px;"></div>
+
+     <!-- コイン -->
+<div class="coin" 
+data-id="g4c1" 
+data-img="beforewemeet2ndtime.jpg"
+data-memory="in 30 mind we will meet! (i eat sukiya)" 
+data-question="what did i think we meet 2nd time at airport?" 
+data-answers="happy,nerves,nothing" 
+data-correct="nerves" 
+style="left: 300px; top: 200px;"></div>
+
+<div class="coin" 
+data-id="g4c2" 
+data-img="bedpic.jpg"
+data-memory="when you almost start crying i also wanted to cry TT" 
+data-question="what was my most memorial events?" 
+data-answers="try have sex,eat good food with you,last bed time we say good bye" 
+data-correct="last bed time we say good bye" 
+style="left: 400px; top: 450px;"></div>
+
+<div class="coin" 
+data-id="g4c3" 
+data-img="future.jpg"
+data-memory="We will nerver walk alone!!" 
+data-question="what thing i decide when you leave osaka?" 
+data-answers="meet again,i love you more,marry you and live forever" 
+data-correct="marry you and live forever" 
+style="left: 900px; top: 270px;"></div>
+
+     <!--ここ新しい場所 吹き出し -->
+ <div id="coinMessage" style="display: none;">
+  <img id="coinImage" src="" style="width: 60px; height: auto; margin-right: 10px;">
+  <span id="coinMessageText">🪙</span>
+  <button id="closeCoinMsg">×</button>
+</div>
+<div id="memoryPhotoBox" class="photo-popup" style="display: none;">
+  <button id="closeMemoryPhoto">×</button>
+  <img id="memoryPhoto" src="" alt="Memory Photo">
+</div>
+
+    <!-- クイズ表示エリア -->
+<div id="quizPopup" style="
+display: none;
+position: fixed;
+top: 30%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: white;
+border: 2px solid black;
+padding: 20px;
+z-index: 9999;
+text-align: center;
+"></div>
+
+    <!-- ゴール -->
+    <div id="goal" style="display: none;">🎌</div>
+  </div>
+
+  <!-- スタート説明画面 -->
+  <div id="introBox">
+    <div class="intro-content">
+      <h2>🛫 Stage 4 - Osaka</h2>
+      <p>Collect all haru coins and reach the goal!</p>
+      <button id="startBtn">OK</button>
+    </div>
+  </div>
+
+  <!-- クリア画面 -->
+  <div id="clearBox" style="display: none;">
+    <div class="clear-content">
+      <h2>🎉 Final Stage Clear!</h2>
+      <p id="memoryText">Memory</p>
+      <button id="nextStageBtn">🏁 Finish our travel</button>
+    </div>
+  </div>
+
+  <script src="game-script.js"></script>
+</body>
+</html>

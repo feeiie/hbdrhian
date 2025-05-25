@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stage2 - Singapore</title>
+  <link rel="stylesheet" href="game-style.css" />
+</head>
+<body>
+  <audio id="quizOpenSound" src="パッ.mp3" preload="auto"></audio>
+<audio id="quizCorrectSound" src="クイズ正解2.mp3" preload="auto"></audio>
+<audio id="quizWrongSound" src="クイズ不正解1.mp3" preload="auto"></audio>
+<audio id="bgm" src="コーヒーゼリー.mp3" autoplay loop preload="auto"></audio>
+  <audio id="goalSound" src="ぷよん.mp3" preload="auto"></audio>
+
+  <!-- ステージ名＆コイン表示 -->
+  <div id="stageName">Stage 2 - Singapore</div>
+  <div id="haruCounterArea">
+    <span id="haruCounter">haru: 0</span>
+    <button id="resetHaruBtn">🔄 Reset</button>
+  </div>
+
+  <!-- 戻る＆マップボタン -->
+  <div id="navButtons">
+    <button onclick="goBackStage()">⬅ Back</button>
+    <button onclick="location.href='map.html'">🗺 Map</button>
+    <button onclick="location.href='gallery.html'">🗺 Gallery</button>
+  </div>
+  <button class="haru-btn bottom-right" onclick="location.href='haru-coin.html'">💰 how to use haru-coin</button>
+
+  <div id="gameArea" style="background-image: url('https://res.klook.com/image/upload/q_85/c_fill,w_750/v1671176454/blog/vsf4aq6u69t5zfbgc28i.jpg'); background-size: cover; background-position: center;">
+    <div id="player"></div>
+
+
+
+    <!-- ギャラリーアイテム -->
+<div class="gallery-item"
+data-id="gallery3"
+data-img="firstjapan.jpg"
+data-question="Where did you we take a picutre at frist at outside?"
+data-answers="namba,dontobori,umeda"
+data-correct="dontobori"
+data-memory="Finally we meet!"
+style="left: 500px; top: 350px;"></div>
+
+
+<div class="gallery-item"
+data-id="gallery4"
+data-img="wentpalces.jpg"
+data-question="Where was not palce we went to?"
+data-answers="umeda skybill,old game shop,kyobashi"
+data-correct="kyobashi"
+data-memory="we went to many places"
+style="left: 850px; top: 350px;"></div>
+
+     <!-- コイン -->
+<div class="coin" 
+data-id="g2c1" 
+data-img="airportpic.jpg"
+data-memory="When you sned me this i was soo nerves!" 
+data-question="what did i think when i met you in airport?" 
+data-answers="suprise,cute,feel like dream" 
+data-correct="feel like dream" 
+style="left: 300px; top: 200px;"></div>
+
+<div class="coin" 
+data-id="g2c2"
+data-img="firststore.jpg" 
+data-memory="hehe dont talk like high tone voice baby" 
+data-question="did i nerves?" 
+data-answers="yes,no,yes but pretend normal" 
+data-correct="yes but pretend normal" 
+style="left: 400px; top: 450px;"></div>
+
+<div class="coin" 
+data-id="g2c3" 
+data-img="afterbye.jpg"
+data-memory="i took this picture after you leave TT" 
+data-question="where was a best meory spot at first meet?" 
+data-answers="daikokucho airbnb,airport,on bed" 
+data-correct="airport" 
+style="left: 900px; top: 270px;"></div>
+
+    <!--ここ新しい場所 吹き出し -->
+<div id="coinMessage" style="display: none;">
+  <img id="coinImage" src="" style="width: 60px; height: auto; margin-right: 10px;">
+  <span id="coinMessageText">🪙</span>
+  <button id="closeCoinMsg">×</button>
+</div>
+<div id="memoryPhotoBox" class="photo-popup" style="display: none;">
+  <button id="closeMemoryPhoto">×</button>
+  <img id="memoryPhoto" src="" alt="Memory Photo">
+</div>
+
+    <!-- クイズ表示エリア -->
+<div id="quizPopup" style="
+display: none;
+position: fixed;
+top: 30%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: white;
+border: 2px solid black;
+padding: 20px;
+z-index: 9999;
+text-align: center;
+"></div>
+
+    <!-- ゴール -->
+    <div id="goal" style="display: none;">🏁</div>
+  </div>
+
+  <!-- スタート説明画面 -->
+  <div id="introBox">
+    <div class="intro-content">
+      <h2>🛫 Stage 2 - Singapore</h2>
+      <p>Collect all haru coins and reach the goal!</p>
+      <button id="startBtn">OK</button>
+    </div>
+  </div>
+
+  <!-- クリア画面 -->
+  <div id="clearBox" style="display: none;">
+    <div class="clear-content">
+      <h2>🎉 Stage Clear!</h2>
+      <p id="memoryText">memory：</p>
+      <button id="nextStageBtn">next➡️</button>
+    </div>
+  </div>
+
+  <script src="game-script.js"></script>
+</body>
+</html>

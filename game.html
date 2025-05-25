@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stage1 - Perth</title>
+  
+  <link rel="stylesheet" href="game-style.css" />
+</head>
+<body>
+  <audio id="quizOpenSound" src="パッ.mp3" preload="auto"></audio>
+<audio id="quizCorrectSound" src="クイズ正解2.mp3" preload="auto"></audio>
+<audio id="quizWrongSound" src="クイズ不正解1.mp3" preload="auto"></audio>
+  <audio id="bgm" src="コーヒーゼリー.mp3" autoplay loop preload="auto"></audio>
+  <audio id="clickSound" src="パッ.mp3" preload="auto"></audio>
+  <audio id="goalSound" src="ぷよん.mp3" preload="auto"></audio>
+
+
+
+    <div id="stageLabel">Stage 1 - Perth</div>
+    <!-- HARUコインカウント表示 -->
+    <div id="haruCounterArea">
+      <span id="haruCounter">haru: 0</span>
+      <button id="resetHaruBtn">🔄 Reset</button>
+    </div>
+    
+<!-- 戻る＆マップボタン -->
+<div id="navButtons">
+  <button onclick="goBackStage()">← Back</button>
+  <button onclick="location.href='map.html'">🗺 Map</button>
+  <button onclick="location.href='gallery.html'">🗺 Gallery</button>
+</div>
+
+<button class="haru-btn bottom-right" onclick="location.href='haru-coin.html'">💰 how to use haru-coin</button>
+
+
+  <div id="gameArea">
+    <div id="player"></div>
+
+  <!-- gallery-item 1 -->
+<!-- ギャラリーアイテム -->
+<div class="gallery-item"
+     data-id="gallery1"
+     data-img="discordpic.jpg"
+     data-question="what was i doing when we talk a frist time?"
+     data-answers="nothing,fortnite,studying"
+     data-correct="fortnite"
+     data-memory="Our home was here"c
+     style="left: 500px; top: 350px;"></div>
+
+
+     <div class="gallery-item"
+     data-id="gallery2"
+     data-img="ogserver.jpg"
+     data-question="why i started making server?"
+     data-answers="for fun,to speak with people,paly fornite there"
+     data-correct="to speak with people"
+     data-memory="Server you didint know moment"
+     style="left: 850px; top: 350px;"></div>
+
+
+
+<div class="coin" 
+data-id="g1c1" 
+data-img="oldestpicria.png"
+data-memory="Our story started from here" 
+data-question="what did i think if i heard your voice first time at server?" 
+data-answers="cute,normal,feel like a kids" 
+data-correct="cute" 
+style="left: 300px; top: 200px;"></div>
+
+<div class="coin" 
+data-id="g1c2" 
+data-img="firstinvite.png"
+data-memory="This is a picture when you invite me vc first time" 
+data-question="What did i do for wait until night?" 
+data-answers="play game,talk someone in other server,sleep and charge my iphone" 
+data-correct="sleep and charge my iphone" 
+style="left: 400px; top: 450px;"></div>
+
+<div class="coin" 
+data-id="g1c3"
+data-img="serverpic.png"
+data-memory="oldest server picutre of talking many friends" 
+data-question="what did i do for talk with you a lot?" 
+data-answers="ask talk extra 15mins,talk something that you like,talk about animal" 
+data-correct="ask talk extra 15mins" 
+style="left: 900px; top: 270px;"></div>
+
+
+    <!--ここ新しい場所 吹き出し -->
+<div id="coinMessage" style="display: none;">
+  <img id="coinImage" src="" style="width: 60px; height: auto; margin-right: 10px;">
+  <span id="coinMessageText">🪙</span>
+  <button id="closeCoinMsg">×</button>
+</div>
+<div id="memoryPhotoBox" class="photo-popup" style="display: none;">
+  <button id="closeMemoryPhoto">×</button>
+  <img id="memoryPhoto" src="" alt="Memory Photo">
+</div>
+
+
+
+<!-- クイズ表示エリア -->
+<div id="quizPopup" style="
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 2px solid black;
+  padding: 20px;
+  z-index: 9999;
+  text-align: center;
+"></div>
+
+
+
+<!-- ゴール -->
+<div id="goal" style="display: none;">🏁</div>
+  <!-- スタート説明画面 -->
+  <div id="introBox">
+    <div class="intro-content">
+      <h2>🛫 Stage 1 perth</h2>
+      <p>collect Haru coin all and go to goal!</p>
+      <button id="startBtn">OK</button>
+    </div>
+</div>
+
+<!-- ステージクリア画面（共通） -->
+<div id="clearBox" style="display: none;">
+    <div class="clear-content">
+      <h2>🎉 Stage Clear!</h2>
+      <p id="memoryText">Displaying memories...</p>
+      <button id="nextStageBtn">next ➡️</button>
+      <button class="break-button" onclick="location.href='break-perth.html'">✉️ Break Time<button>
+    </div>
+  </div>
+  <div id="passwordBox" style="
+  position: fixed; top: 20%; left: 50%; transform: translate(-50%,0);
+  background: #fff0f5; padding: 15px; border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index:9999; display:none;
+">
+
+  
+
+  <script src="game-script.js"></script>
+</body>
+</html>

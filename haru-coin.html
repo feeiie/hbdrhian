@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>HARU Stage shop</title>
+      <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&family=M+PLUS+Rounded+1c&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="haru-coin-style.css" />
+</head>
+<body>
+  <audio id="clickSound" src="パッ.mp3" preload="auto"></audio>
+
+  <div class="shop-header">
+    <h1>🧳 Get New Stage!</h1>
+    <div class="coin-counter">Your wallet：<span id="haruTotal">0</span> haru</div>
+  </div>
+
+  <div class="shop-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Price</th>
+          <th>Explanation</th>
+          <th>Buy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Special Stage1</td>
+          <td>15 haru</td>
+          <td>Story of uni</td>
+          <td><button class="buy-btn" id="buyStage1Btn">Buy</button></td>
+        </tr>
+        <tr>
+          <td>Special Stage2</td>
+          <td>15 haru</td>
+          <td>Story of life with me</td>
+          <td><button class="buy-btn" id="buyStage2Btn">Buy</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="shop-buttons">
+    <button onclick="goBack()">← Back to Game</button>
+    <button onclick="location.href='index2.html'">🌐  to haruria.com</button>
+    <button id="resetShopBtn">🔄 Reset</button>
+  </div>
+
+  <script src="haru-coin.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>📸 Gallery</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #fffafc;
+    }
+    #galleryGrid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .card {
+      width: 180px;
+      height: 220px;
+      border: 2px solid #ffcce0;
+      background: #fff0f5;
+      border-radius: 12px;
+      margin: 10px;
+      padding: 8px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: 80%;
+      border-radius: 8px;
+    }
+    .card p {
+      margin: 5px 0 0;
+      font-weight: bold;
+    }
+    .back-button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #aee1f9;
+  border: none;
+  border-radius: 10px;
+  color: #003d66;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.back-button:hover {
+  background-color: #90caf9;
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+  <audio id="clickSound" src="パッ.mp3" preload="auto"></audio>
+
+  <h1>📸 Gallery</h1>
+  <div id="galleryGrid"></div>
+<button class="back-button" onclick="history.back()">back</button>
+  <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const clickSound = document.getElementById("clickSound");
+
+    document.querySelectorAll("button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (clickSound) {
+          clickSound.currentTime = 0;
+          clickSound.play().catch(() => {});
+        }
+      });
+    });
+  });
+    const totalCards = 10;
+
+    // ギャラリー画像のデータ設定（全10枚）
+    const images = {
+      gallery1: { src: "discordpic.jpg", title: "Me and you house" },
+      gallery2: { src: "ogserver.jpg", title: "Make this server change my life" },
+      gallery3: { src: "firstjapan.jpg", title: "most happy day our life" },
+      gallery4: { src: "wentpalces.jpg", title: "many memories" },
+      gallery5: { src: "finalline.png", title: "almost cried" },
+      gallery6: { src: "wait1year.png", title: "I know you like this" },
+      gallery7: { src: "nerveswhenyousendme.jpg", title: "I AM WAITING" },
+      gallery8: { src: "watchmovie.jpg", title: "NEXt time you can" },
+      gallery9: { src: "unipic.jpg", title: "You can do it!" },
+      gallery10: { src: "livewtih.jpg", title: "you can bite me everyday!" }
+    };
+
+    // ローカルストレージから獲得状況を取得
+    const unlocked = JSON.parse(localStorage.getItem("galleryUnlocks") || "[]");
+    const galleryDiv = document.getElementById("galleryGrid");
+
+    for (let i = 1; i <= totalCards; i++) {
+      const itemId = `gallery${i}`;
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const img = document.createElement("img");
+      const title = document.createElement("p");
+
+      if (unlocked.includes(itemId)) {
+        // 獲得済みなら画像とタイトルを表示
+        img.src = images[itemId].src;
+        title.textContent = images[itemId].title;
+      } else {
+        // 未獲得なら「？」表示
+        img.src = "img/question.png"; // 「？」の画像を準備して img フォルダへ
+        title.textContent = "？？？";
+      }
+
+      card.appendChild(img);
+      card.appendChild(title);
+      galleryDiv.appendChild(card);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>毎日のクイズ - Haruria</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+      background: #fff0f5;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+      color: #d33c6c;
+    }
+
+    .quiz-box {
+      background: white;
+      margin: 20px auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 700px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .quiz-block {
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    .quiz-block p {
+      font-weight: bold;
+    }
+
+    .quiz-option {
+      display: block;
+      margin: 8px 0;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ffe0ea;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .quiz-option:hover {
+      background-color: #ffc1d6;
+    }
+
+    .correct {
+      background-color: #c6f5c6 !important;
+    }
+
+    .wrong {
+      background-color: #ffc2c2 !important;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+    }
+
+    table {
+      margin: 30px auto;
+      border-collapse: collapse;
+      width: 90%;
+      max-width: 600px;
+      background: #fff;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #ffe0ea;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 今日のクイズ！</h1>
+
+  <div class="quiz-box">
+    <div class="quiz-block">
+        <p>Q1 did i wake up good this morning?</p>
+        <button class="quiz-option" data-correct="true" onclick="checkAnswer(this)"> good</button>
+        <button class="quiz-option" onclick="checkAnswer(this)"> no</button>
+        <button class="quiz-option" onclick="checkAnswer(this)"> i slept two times</button>
+        <p class="quiz-feedback"></p>
+    </div>
+
+    <div class="quiz-block">
+        <p>Q2 what was a happy thing i got yesterday?</p>
+        <button class="quiz-option" onclick="checkAnswer(this)">made me happy</button>
+        <button class="quiz-option" data-correct="true"onclick="checkAnswer(this)">decied a future events</button>
+        <button class="quiz-option" onclick="checkAnswer(this)">sleep deeply</button>
+        <p class="quiz-feedback"></p>
+    </div>
+
+    <div class="quiz-block">
+        <p>Q3 what did i do today？</p>
+        <button class="quiz-option" onclick="checkAnswer(this)">programing</button>
+        <button class="quiz-option" onclick="checkAnswer(this)">go to tenoji</button>
+        <button class="quiz-option" data-correct="true"onclick="checkAnswer(this)"> cleaned my room a bit </button>
+        <p class="quiz-feedback"></p>
+    </div>
+
+    <div class="quiz-block">
+        <p>Q4 what i want to do ？</p>
+        <button class="quiz-option" data-correct="true" onclick="checkAnswer(this)">organize you </button>
+        <button class="quiz-option" onclick="checkAnswer(this)">maek a money</button>
+        <button class="quiz-option" onclick="checkAnswer(this)">finish univercity</button>
+        <p class="quiz-feedback"></p>
+    </div>
+
+    <div class="quiz-block">
+        <p>Q5 which one i want to see tonight?</p>
+        <button class="quiz-option" data-correct="true" onclick="checkAnswer(this)">white seihuku</button>
+        <button class="quiz-option" onclick="checkAnswer(this)">pink seihuku</button>
+        <button class="quiz-option" onclick="checkAnswer(this)"> dance</button>
+        <p class="quiz-feedback"></p>
+      </div>
+  </div>
+
+  <!-- 最終結果表示 -->
+<div id="finalResult" style="display:none; margin-top: 40px; font-weight: bold; font-size: 1.2em;"></div>
+
+  <button onclick="location.href='index.html'" class="quiz-btn back-btn">⬅ ホームに戻る</button>
+
+  <h2>📔 毎日の記録 daily record (this is is not auto )</h2>
+  <table>
+    <tr>
+      <th>日付</th>
+      <th>正解数</th>
+      <th>メモ</th>
+    </tr>
+    <tr>
+      <td>2025/03/29</td>
+      <td>3/ 5</td>
+      <td>よくない</td>
+    </tr>
+    <!-- 👇 ここに追加するだけ！ -->
+    <!-- <tr><td>日付</td><td>正解数</td><td>メモ</td></tr> -->
+  </table>
+
+  <script>
+    let totalQuestions = 5;
+    let answeredCount = 0;
+    let correctCount = 0;
+  
+    function checkAnswer(button) {
+      const block = button.closest(".quiz-block");
+      const allButtons = block.querySelectorAll(".quiz-option");
+      const feedback = block.querySelector(".quiz-feedback");
+  
+      // すでに回答済みなら無視
+      if (block.classList.contains("answered")) return;
+  
+      block.classList.add("answered");
+      allButtons.forEach(btn => btn.disabled = true);
+  
+      if (button.dataset.correct === "true") {
+        button.style.backgroundColor = "#b2f2bb";
+        feedback.textContent = "🎉 正解！";
+        feedback.style.color = "green";
+        correctCount++;
+      } else {
+        button.style.backgroundColor = "#ffadad";
+        feedback.textContent = "😢 不正解...";
+        feedback.style.color = "red";
+        const correctBtn = block.querySelector('[data-correct="true"]');
+        if (correctBtn) correctBtn.style.border = "2px solid green";
+      }
+  
+      answeredCount++;
+  
+      // 最後の問題だったら最終結果を表示
+      if (answeredCount === totalQuestions) {
+        const final = document.getElementById("finalResult");
+        final.style.display = "block";
+        final.innerHTML = `✅ あなたの正解数は <strong>${correctCount}/${totalQuestions}</strong> です！<br>${
+          correctCount === 5
+            ? "🌟 えらい"
+            : correctCount >= 3
+            ? "👍 よく覚えてるね！"
+            : "😢 もっと思い出して"
+        }`;
+      }
+    }
+  </script>
+  
+</body>
+</html>

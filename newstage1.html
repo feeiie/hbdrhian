@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>newStage - Finished Univercity </title>
+  <link rel="stylesheet" href="game-style.css" />
+</head>
+<body>
+  <audio id="quizOpenSound" src="パッ.mp3" preload="auto"></audio>
+<audio id="quizCorrectSound" src="クイズ正解2.mp3" preload="auto"></audio>
+<audio id="quizWrongSound" src="クイズ不正解1.mp3" preload="auto"></audio>
+<audio id="bgm" src="コーヒーゼリー.mp3" autoplay loop preload="auto"></audio>
+<audio id="clickSound" src="パッ.mp3" preload="auto"></audio>
+  <audio id="goalSound" src="ぷよん.mp3" preload="auto"></audio>
+
+
+  <!-- ステージ名＆コイン表示 -->
+  <div id="stageName">newStage - Finished Univercity</div>
+  <div id="haruCounterArea">
+    <span id="haruCounter">haru: 0</span>
+    <button id="resetHaruBtn">🔄 Reset</button>
+  </div>
+
+  <!-- 戻る＆マップボタン -->
+  <div id="navButtons">
+    <button onclick="goBackStage()">⬅ Back</button>
+    <button onclick="location.href='map.html'">🗺 Map</button>
+    <button onclick="location.href='gallery.html'">Gallery</button>
+  </div>
+  <button class="haru-btn bottom-right" onclick="location.href='haru-coin.html'">💰 how to use haru-coin</button>
+
+  <div id="gameArea" style="background-image: url('https://student-public.s3.ap-southeast-1.amazonaws.com/prod/blogs/1p5NzSvhJuy3R5lClo584tEHgmYJMEJ5o5OPbblq.jpg'); background-size: cover; background-position: center;">
+    <div id="player"></div>
+
+
+
+    <!-- ギャラリーアイテム -->
+<div class="gallery-item"
+data-id="gallery9"
+data-img="unipic.jpg"
+data-question="What did i think when you have been too busy to go hospital?"
+data-answers="good luck,you are good girl,sad"
+data-correct="sad"
+data-memory="your guraduation will be soon GL my baby"
+style="left: 500px; top: 350px;"></div>
+
+
+     <!-- コイン -->
+<div class="coin" 
+data-id="g5c1" 
+data-img="roboc.jpg"
+data-memory="You looks sooo hapopy when you play this game with me!!" 
+data-question="Which game most fun i play with you?" 
+data-answers="going up,mini games,rival" 
+data-correct="rival" 
+style="left: 300px; top: 200px;"></div>
+
+<div class="coin" 
+data-id="g5c2"
+data-img="Osaka.png" 
+data-memory="Milly also will go to 10k subs in the future" 
+data-question="which is  most happy for me?" 
+data-answers="1M views,20k subs,we are getting bigger" 
+data-correct="we are getting bigger" 
+style="left: 400px; top: 450px;"></div>
+
+<div class="coin" 
+data-id="g5c3" 
+data-img="thistimeiwant.jpg"
+data-memory="Everytime i want you!" 
+data-question="Why do i like watching dance?" 
+data-answers="bc you are cute,bc you are good at,both" 
+data-correct="both" 
+style="left: 900px; top: 270px;"></div>
+
+    <!--ここ新しい場所 吹き出し -->
+<div id="coinMessage" style="display: none;">
+  <img id="coinImage" src="" style="width: 60px; height: auto; margin-right: 10px;">
+  <span id="coinMessageText">🪙</span>
+  <button id="closeCoinMsg">×</button>
+</div>
+<div id="memoryPhotoBox" class="photo-popup" style="display: none;">
+  <button id="closeMemoryPhoto">×</button>
+  <img id="memoryPhoto" src="" alt="Memory Photo">
+</div>
+
+    <!-- クイズ表示エリア -->
+<div id="quizPopup" style="
+display: none;
+position: fixed;
+top: 30%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: white;
+border: 2px solid black;
+padding: 20px;
+z-index: 9999;
+text-align: center;
+"></div>
+
+    <!-- ゴール -->
+    <div id="goal" style="display: none;">🏁</div>
+  </div>
+
+  <!-- スタート説明画面 -->
+  <div id="introBox">
+    <div class="intro-content">
+      <h2>🛫 newstage1 - Univercity</h2>
+      <p>Collect all haru coins and reach the goal!</p>
+      <button id="startBtn">OK</button>
+    </div>
+  </div>
+
+  <!-- クリア画面 -->
+  <div id="clearBox" style="display: none;">
+    <div class="clear-content">
+      <h2>🎉 Stage Clear!</h2>
+      <p id="memoryText">Memory：</p>
+      <button id="nextStageBtn"> ➡️next</button>
+    </div>
+  </div>
+
+  <script src="game-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>クリアプレゼント</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #fce4ec, #e1f5fe);
+      text-align: center;
+      padding: 60px 20px;
+    }
+    h1 {
+      font-size: 32px;
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 40px;
+    }
+    .options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .option {
+      background: white;
+      border: 2px solid #90caf9;
+      border-radius: 15px;
+      padding: 30px 40px;
+      width: 250px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .option h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    .option button {
+      font-size: 16px;
+      padding: 10px 20px;
+      background-color: #64b5f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .option button:hover {
+      background-color: #42a5f5;
+    }
+    #result {
+      margin-top: 40px;
+      font-size: 20px;
+      color: #4caf50;
+    }
+    .nav-buttons {
+      margin-top: 60px;
+    }
+    .nav-buttons button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff8a65;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .nav-buttons button:hover {
+      background-color: #ff7043;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 おめでとう！</h1>
+  <p>旅のクリアプレゼントを選んでください（どちらも選べます）</p>
+
+  <div class="options">
+    <div class="option">
+      <h2>🎁 プレゼント</h2>
+      <button onclick="showMessage('🎁 かわいいプレゼントをゲット！')">受け取る</button>
+    </div>
+    <div class="option">
+      <h2>💌 手紙</h2>
+      <button onclick="showMessage('💌 温かい手紙を受け取りました！')">読む</button>
+    </div>
+  </div>
+
+  <div id="result"></div>
+
+  <div class="nav-buttons">
+    <button onclick="location.href='game.html'">🗺 メニューに戻る</button>
+    <button onclick="location.href='https://haruria.com'">🏠 haruria.com に戻る</button>
+    <button onclick="restartJourney()">🔄 旅を最初からやり直す</button>
+  </div>
+  
+  
+
+  <script>
+    function showMessage(msg) {
+      document.getElementById("result").textContent = msg;
+    }
+  
+    function restartJourney() {
+      localStorage.clear();
+      alert("旅の記録をリセットしました。もう一度最初からはじめましょう！");
+      location.href = 'game.html';
+    }
+  </script>
+  
+</body>
+</html>

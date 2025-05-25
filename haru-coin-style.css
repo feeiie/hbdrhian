@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  background: linear-gradient(to bottom right, #fff0f5, #e0ffff);
+  color: #444;
+}
+
+.shop-header {
+  background: #ffb6d5;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-bottom: 5px solid #ff8ac2;
+}
+
+.shop-header h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.coin-counter {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.shop-table {
+  margin: 30px auto;
+  width: 90%;
+  max-width: 800px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff8fb;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 16px;
+  text-align: center;
+  border-bottom: 1px solid #ffe0f0;
+}
+
+th {
+  background: #ffe0f0;
+  color: #c84d90;
+}
+
+.buy-btn {
+  padding: 10px 20px;
+  background: #ffcce5;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buy-btn:hover {
+  background-color: #ffb6d3;
+}
+
+.buy-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.shop-buttons {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.shop-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #b0e0e6;
+  color: #333;
+  border: none;
+  border-radius: 12px;
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.shop-buttons button:hover {
+  background-color: #a0d0d6;
+}
+.use-btn {
+  background: #ffddee;
+  border: none;
+  padding: 8px 16px;
+  font-size: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.use-btn:hover {
+  background-color: #ffcce5;
+}
+
+.shop-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #b0e0e6;
+  color: #333;
+  border: none;
+  border-radius: 12px;
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.shop-buttons button:hover {
+  background-color: #a0d0d6;
+}
+.present-box {
+  position: relative;
+  margin: 30px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.present-box .lid {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  background: #ff9fcf;
+  border-radius: 12px 12px 0 0;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transform-origin: top center;
+  transform: rotateX(0deg);
+  transition: transform 0.6s ease;
+}
+
+.present-box.open .lid {
+  transform: rotateX(-90deg);
+}
+
+.box-content {
+  background: #fff0f5;
+  padding: 20px;
+  border: 2px solid #ffcce5;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+.present-box.open .box-content {
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* ×ボタン */
+#closeGiftBox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ffcce5;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}

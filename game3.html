@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stage3 - KIX</title>
+  <link rel="stylesheet" href="game-style.css" />
+</head>
+<body>
+  <audio id="quizOpenSound" src="パッ.mp3" preload="auto"></audio>
+<audio id="quizCorrectSound" src="クイズ正解2.mp3" preload="auto"></audio>
+<audio id="quizWrongSound" src="クイズ不正解1.mp3" preload="auto"></audio>
+<audio id="bgm" src="コーヒーゼリー.mp3" autoplay loop preload="auto"></audio>
+  <audio id="goalSound" src="ぷよん.mp3" preload="auto"></audio>
+
+  <!-- ステージ名＆コイン表示 -->
+  <div id="stageName">Stage 3 - Kansai Airport</div>
+  <div id="haruCounterArea">
+    <span id="haruCounter">haru: 0</span>
+    <button id="resetHaruBtn">🔄 Reset<button>
+  </div>
+
+  <!-- 戻る＆マップボタン -->
+  <div id="navButtons">
+    <button onclick="goBackStage()">⬅ Back</button>
+    <button onclick="location.href='map.html'">🗺 Map</button>
+    <button onclick="location.href='gallery.html'">🗺 Gallery</button>
+  </div>
+
+  <button class="haru-btn bottom-right" onclick="location.href='haru-coin.html'">💰 how to use haru-coin</button>
+
+  <div id="gameArea" style="background-image: url('https://osaka-info.jp/spot/images/8493ed2e2e7444a080d4d7c504ab12cc3da2c272.jpg'); background-size: cover; background-position: center;">
+    <div id="player"></div>
+
+
+
+    <!-- ギャラリーアイテム -->
+<div class="gallery-item"
+data-id="gallery5"
+data-img="finalline.png"
+data-question="Wheni recevie final messege about thanks come to airport what do i think at first?"
+data-answers="realzied we back line life again,sad,excited 2nd meet"
+data-correct="realzied we back line life again"
+data-memory="ofc i was sad i needed to be stronger"
+style="left: 500px; top: 350px;"></div>
+
+
+<div class="gallery-item"
+data-id="gallery6"
+data-img="wait1year.png"
+data-question="When do i see this picture?"
+data-answers="sad,mad,lonely"
+data-correct="lonely"
+data-memory="this is one of the most sad events i have ever have"
+style="left: 850px; top: 350px;"></div>
+
+     <!-- コイン -->
+<div class="coin" 
+data-id="g3c1" 
+data-img="palceiwantgo.jpg"
+data-memory="many places i want to go with!!" 
+data-question="what have i been doing until you come 2nd time?" 
+data-answers="save money,look place where we can go,looking gift,everything" 
+data-correct="everything" 
+style="left: 300px; top: 200px;"></div>
+
+<div class="coin" 
+data-id="g3c2" 
+data-img="yourgift.jpg"
+data-memory="Thank you for gfit! i was so so so happy" 
+data-question="Whats i ready for you 2nd meet?" 
+data-answers="have sex,gift,clothes" 
+data-correct="gift" 
+style="left: 400px; top: 450px;"></div>
+
+<div class="coin" 
+data-id="g3c3" 
+data-img="excited.jpg"
+data-memory="haha last 2 hours i will meat you i broke my suitcase OMG" 
+data-question="waht did i hidde you until you come here 2nd time??" 
+data-answers="already watched prision break,excited feeling, dating with other girl" 
+data-correct="excited feeling" 
+style="left: 900px; top: 270px;"></div>
+
+    
+ <!--ここ新しい場所 吹き出し -->
+ <div id="coinMessage" style="display: none;">
+  <img id="coinImage" src="" style="width: 60px; height: auto; margin-right: 10px;">
+  <span id="coinMessageText">🪙</span>
+  <button id="closeCoinMsg">×</button>
+</div>
+<div id="memoryPhotoBox" class="photo-popup" style="display: none;">
+  <button id="closeMemoryPhoto">×</button>
+  <img id="memoryPhoto" src="" alt="Memory Photo">
+</div>
+
+    <!-- クイズ表示エリア -->
+<div id="quizPopup" style="
+display: none;
+position: fixed;
+top: 30%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: white;
+border: 2px solid black;
+padding: 20px;
+z-index: 9999;
+text-align: center;
+"></div>
+
+    <!-- ゴール -->
+    <div id="goal" style="display: none;">🏁</div>
+  </div>
+
+  <!-- スタート説明画面 -->
+  <div id="introBox">
+    <div class="intro-content">
+      <h2>🛫 Stage 3 - Kansai Airport</h2>
+      <p>Collect all haru coins and reach the goal!</p>
+      <button id="startBtn">OK</button>
+    </div>
+  </div>
+
+  <!-- クリア画面 -->
+  <div id="clearBox" style="display: none;">
+    <div class="clear-content">
+      <h2>🎉 Stage Clear!</h2>
+      <p id="memoryText">memory：</p>
+      <button id="nextStageBtn">next ➡️</button>
+    </div>
+  </div>
+
+  <script src="game-script.js"></script>
+</body>
+</html>
