@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+      <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&family=M+PLUS+Rounded+1c&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+  <title>Travel Ending</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom, #fff0f4, #ffeaea);
+      font-family: 'Noto Serif JP', serif; /* ←変更！ */
+      overflow: hidden;
+    }
+
+    .game-clear-message {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      color: #e73c7e;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(255, 150, 170, 0.3);
+      z-index: 1000;
+      opacity: 0;
+      animation: fadeInOut 6s ease-in-out forwards;
+    }
+
+    .scroll-container {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      animation: scrollUp 60s linear forwards;
+    }
+
+    .ending-letter {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 60px 30px;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(255, 150, 170, 0.3);
+      text-align: left;
+      line-height: 1.9;
+      font-size: 17px;
+      color: #5b3a42;
+    }
+    .bold-en {
+  font-weight: bold;
+}
+
+
+    .ending-letter::before {
+      content: "💌";
+      font-size: 2.5rem;
+      display: block;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .ending-letter p:last-child {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #e73c7e;
+    }
+
+    .button-group {
+      text-align: center;
+      margin-top: 50px;
+      opacity: 0;
+      animation: fadeIn 2s ease-in forwards;
+      animation-delay: 62s;
+    }
+
+    .button-group button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ffd5e5;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .button-group button:hover {
+      background-color: #ffb6d0;
+    }
+
+    @keyframes scrollUp {
+      from {
+        top: 100%;
+      }
+      to {
+        top: -200%;
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0;
+      }
+      10%, 90% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgm" src="休日のアクアリウム.mp3" autoplay loop preload="auto"></audio>
+<audio id="clickSound" src="パッ.mp3" preload="auto"></audio>
+
+  <div class="game-clear-message">
+    <span class="bold-en">🎉Finish Our Travel!!🎉</span>
+  </div>
+  
+
+  <div class="scroll-container">
+    <div class="ending-letter">
+      <p><span class="bold-en">Happy birthday, Rhain.</span></p>
+  
+      <p><span class="bold-en">You’re 22 now.<br>
+      Maybe this is the first time I’ve made something special for your birthday.<br>
+      This whole journey, this gift, was made with just “copy and paste”…<br>
+      But it carries all the memories and love I feel for you.</span></p>
+  
+      <p><span class="bold-en">When we first met, I was 16 and you were 18 (I think).<br>
+      Thinking back on those days and everything since—<br>
+      there are too many memories to fit into this one website.</span></p>
+  
+      <p><span class="bold-en">So I’ve prepared another way to keep our memories together.<br>
+      (You’ll find out soon.)</span></p>
+  
+      <p><span class="bold-en">It’s always been hard for me to express my feelings through letters.<br>
+      But I want you to know—<br>
+      making this website for you has never once felt like a chore.</span></p>
+  
+      <p><span class="bold-en">I started writing this letter around March 27th,<br>
+      and now, as this journey ends, I want to say one thing:</span></p>
+  
+      <p><span class="bold-en">Thank you for traveling with me.<br>
+      From Perth to Osaka,<br>
+      you’ve collected every moment with me,<br>
+      and each of those memories is one of the most important in my entire life.</span></p>
+  
+      <p><span class="bold-en">Every place, every laugh, every scene—<br>
+      they’ve all settled deep in my heart,<br>
+      and I’ll remember them forever as if they happened just yesterday.</span></p>
+  
+      <p><span class="bold-en">Next time, we’ll meet in your country.<br>
+      I’ll be there to see your graduation ceremony,<br>
+      and I’m really looking forward to it.</span></p>
+  
+      <p><span class="bold-en">I love you.</span></p>
+    </div>
+  </div>
+  
+
+  <div class="button-group">
+    <button onclick="location.href='index2.html'">🏠 Back to menu</button>
+    <button onclick="location.reload()">🔁 read again</button>
+  </div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const clickSound = document.getElementById("clickSound");
+
+    if (clickSound) {
+      document.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", () => {
+          clickSound.currentTime = 0;
+          clickSound.play().catch(() => {});
+        });
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+      <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&family=M+PLUS+Rounded+1c&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+  <title>ending2 Our future</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom, #fff0f4, #ffeaea);
+      font-family: "Zen Maru Gothic", "Georgia", serif;
+      overflow: hidden;
+    }
+
+    .game-clear-message {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      color: #e73c7e;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(255, 150, 170, 0.3);
+      z-index: 1000;
+      opacity: 0;
+      animation: fadeInOut 6s ease-in-out forwards;
+    }
+
+    .scroll-container {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      animation: scrollUp 60s linear forwards;
+    }
+
+    .ending-letter {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 60px 30px;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(255, 150, 170, 0.3);
+      text-align: left;
+      line-height: 1.9;
+      font-size: 17px;
+      color: #5b3a42;
+    }
+
+    .ending-letter::before {
+      content: "🏠";
+      font-size: 2.5rem;
+      display: block;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .ending-letter p:last-child {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #e73c7e;
+    }
+
+    .button-group {
+      text-align: center;
+      margin-top: 50px;
+      opacity: 0;
+      animation: fadeIn 2s ease-in forwards;
+      animation-delay: 62s;
+    }
+
+    .button-group button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ffd5e5;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .button-group button:hover {
+      background-color: #ffb6d0;
+    }
+
+    @keyframes scrollUp {
+      from { top: 100%; }
+      to { top: -200%; }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; }
+      10%, 90% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+    <audio id="bgm" src="休日のアクアリウム.mp3" autoplay loop preload="auto"></audio>
+<audio id="clickSound" src="パッ.mp3" preload="auto"></audio>
+
+  <div class="game-clear-message">
+    🎉Thank you for playing this game🎉
+  </div>
+
+  <div class="scroll-container">
+  <div class="ending-letter">
+    <p>
+      Finally, you completed this website. Through it, you remembered so many memories between us.  
+      <strong>All of them are precious to me.</strong>  
+      Even the moments that aren’t written here—I remember them too.
+    </p>
+
+    <p>
+      We talked every day, did live calls, laughed, and made each other happy.  
+      But from now on, <strong>we need to spend more time thinking about our future than our past.</strong>
+    </p>
+
+    <p>
+      After your graduation, we will meet again and share happy moments together.  
+      I don’t know if everything in our future will go smoothly—our languages and the places we live might be different.
+    </p>
+
+    <p>
+      But please, <strong>don’t feel sorry if I’m alone sometimes.</strong>  
+      I finally found someone I can trust and feel truly comfortable with.  
+      Even if it's hard to speak perfectly, <strong>I want to stay with you until the day we die—together.</strong>
+    </p>
+
+    <p>
+      I once lost a close friend when I entered high school.  
+      After that, I started spending time with "Imokenpi."  
+      We knew each other since junior high, but our relationship wasn’t very deep.
+    </p>
+
+    <p>
+      With Imokenpi, we were just friends who passed time.  
+      <strong>But when I met you… I didn’t expect we would become so deeply connected.</strong>
+    </p>
+
+    <p>
+      <strong>Now, you’re the only one I truly trust.</strong>  
+      You’re not just my best girlfriend—you’re the person I want beside me forever.  
+      <strong>Even after I die, you’ll still be my one and only.</strong>
+    </p>
+
+    <p>
+      I appreciate you so much.  
+      Never think that I dislike you or am angry with you.  
+      <strong>I know how deeply you care about me—and that’s one of the biggest reasons I love you.</strong>
+    </p>
+
+    <p>
+      I know you also have many reasons for loving me.  
+      And I feel the same.  
+      <strong>Anyway… Happy Birthday, Rhian.</strong>  
+      You’re getting older, and maybe school uniforms don’t suit you anymore…  
+      <strong>But you’re still the cutest girl—too cute for any clothes.</strong>
+    </p>
+
+    <p>
+      <strong>I’m so excited to live with you. I love you rhian.</strong>
+    </p>
+  </div>
+</div>
+
+
+  <div class="button-group">
+    <button onclick="location.href='index2.html'">🏠 メニューに戻る</button>
+    <button onclick="location.reload()">🔁 もう一回読む</button>
+  </div>
+
+
+</body>
+</html>
