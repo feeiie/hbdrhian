@@ -1,32 +1,19 @@
 /* 🌸 可愛くポップなデザインに改良 🌸 */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 @font-face {
-    font-family: 'MPLUSRounded1c';
-    src: url('fonts/MPLUSRounded1c-Regular.woff2') format('woff2'),
-         url('fonts/MPLUSRounded1c-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'M PLUS Rounded 1c';
+  src: url('fonts/MPLUSRounded1c-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
-
-@font-face {
-    font-family: 'NotoSansJP';
-    src: url('fonts/NotoSansJP-Regular.woff2') format('woff2'),
-         url('fonts/NotoSansJP-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Noto+Sans+JP:wght@400;700&display=swap');
 
 * {
-    font-family: 'MPLUSRounded1c', 'NotoSansJP', 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
+
 
 /* ヘッダーのデザイン強化 */
 header {
@@ -40,7 +27,7 @@ header {
 
 
 h1 {
-    font-family: 'Potta One', cursive;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     font-size: 3rem;
     color: #ff4081;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
@@ -92,6 +79,7 @@ button:active {
 #countdownSection, #birthdayCountdownSection,#relationshipSection, #savingGoalSection {
     border: 2px solid #ff69b4;
     font-family: 'M PLUS Rounded 1c', sans-serif;
+
     font-weight: bold;
     background-color: rgba(255, 228, 225, 0.9);
     padding: 15px;
@@ -160,7 +148,8 @@ button:active {
 /* 🎀 次の再会カウントダウン タイトル */
 /* 🎀 次の再会カウントダウン タイトル */
 .countdown-title {
-    font-family: 'Fredoka One', cursive; /* かわいいフォント */
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+
     font-size: 26px;
     background: linear-gradient(135deg, #FF8C00, #FF4081); /* オレンジ→ピンクのグラデーション */
     background-clip: text; /* 標準プロパティ */
@@ -370,7 +359,7 @@ button#submit:hover {
     padding: 10px;
     border-radius: 10px;
     font-size: 18px;
-    font-family: "M PLUS Rounded 1c", sans-serif;
+font-family: 'M PLUS Rounded 1c', sans-serif;
     color: #ff4081; /* 明るいピンク */
     text-align: center;
     box-shadow: 2px 2px 5px rgba(255, 105, 180, 0.2);
@@ -387,7 +376,7 @@ button#submit:hover {
     font-weight: bold;
 }
 body {
-    font-family: Arial, sans-serif;
+font-family: 'M PLUS Rounded 1c', sans-serif;
     text-align: center;
     background-color: #e3f2fd;
 }
@@ -565,3 +554,25 @@ button {
     transform: scale(1.05);
   }
   
+  .cute-btn {
+  background: linear-gradient(145deg, #ffb3c6, #ffe3f3);
+  color: #00bfff;
+  font-size: 20px;
+  font-weight: 900;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  text-shadow: 1px 1px 2px rgba(173, 216, 230, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+font-family: 'M PLUS Rounded 1c', sans-serif;
+  display: inline-block;
+  margin: 10px;
+}
+
+.cute-btn:hover {
+  background: linear-gradient(145deg, #ff99bb, #ffddee);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
